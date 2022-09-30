@@ -91,6 +91,12 @@ async function run() {
       const result = await productCollection.deleteOne(query);
       res.send(result);
     });
+    // ADD ITEM COLLECTION
+    app.post('/products', async (req, res) => {
+      const newItem = req.body;
+      const result = await productCollection.insertOne(newItem);
+      res.send(result);
+    });
   } finally {
   }
 }
